@@ -1,31 +1,27 @@
 import { Layout, Menu, MenuProps } from "antd";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 const { Header, Content, Footer, Sider } = Layout;
 
 const items: MenuProps["items"] = [
   {
-    key: "fdsdfja",
-    label: "Dahboard",
+    key: "Dashboard",
+    label: <NavLink to="/admin/dashbord">Dashboard</NavLink>,
   },
   {
-    key: "dfadsljdf",
-    label: "Profile",
-  },
-  {
-    key: "dljakfag",
-    label: "courses",
-  },
-  {
-    key: "dljakfagfd",
-    label: "useManagement",
+    key: "User Management",
+    label: "User Management",
     children: [
       {
-        key: "fdsdfjada",
-        label: "student",
+        key: "Create Admin",
+        label: <NavLink to="/admin/create-admin">Create Admin</NavLink>,
       },
       {
-        key: "dfaddasljdf",
-        label: "admin",
+        key: "Create Faculty",
+        label: <NavLink to="/admin/create-faculty">Create Faculty</NavLink>,
+      },
+      {
+        key: "Create Student",
+        label: <NavLink to="/admin/create-student">Create Student</NavLink>,
       },
     ],
   },
@@ -44,7 +40,16 @@ const MainLayout = () => {
           console.log(collapsed, type);
         }}
       >
-        <div style={{color: 'white', textAlign: 'center', height: '4rem', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div
+          style={{
+            color: "white",
+            textAlign: "center",
+            height: "4rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <h1>PH Uni</h1>
         </div>
         <Menu
@@ -63,7 +68,7 @@ const MainLayout = () => {
               minHeight: 360,
             }}
           >
-            <Outlet/>
+            <Outlet />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
